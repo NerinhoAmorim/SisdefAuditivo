@@ -1,0 +1,311 @@
+{
+  "version": 1,
+  "author": "Nerinho Amorim",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "board-pi-pico-w",
+      "id": "pico",
+      "top": 44.75,
+      "left": 166.75,
+      "attrs": {
+        "builder": "pico-sdk"
+      }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led_vermelho",
+      "top": 123.8,
+      "left": -86.1,
+      "rotate": 270,
+      "attrs": {
+        "color": "red"
+      }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led_amarelo",
+      "top": 147.95,
+      "left": -86.1,
+      "rotate": 270,
+      "attrs": {
+        "color": "yellow"
+      }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led_verde",
+      "top": 167.15,
+      "left": -86.1,
+      "rotate": 270,
+      "attrs": {
+        "color": "green"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 115,
+      "left": -5,
+      "rotate": 90,
+      "attrs": {
+        "value": "220"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r2",
+      "top": 139,
+      "left": -5,
+      "rotate": 90,
+      "attrs": {
+        "value": "220"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r3",
+      "top": 162,
+      "left": -5,
+      "rotate": 90,
+      "attrs": {
+        "value": "220"
+      }
+    },
+    {
+      "type": "board-ssd1306",
+      "id": "oled1",
+      "top": 271.94,
+      "left": 0.23,
+      "attrs": {
+        "i2cAddress": "0x3c"
+      }
+    },
+    {
+      "type": "wokwi-vcc",
+      "id": "vcc1",
+      "top": 183.16,
+      "left": -96,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gnd",
+      "id": "gnd1",
+      "top": 297.6,
+      "left": -58.2,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-analog-joystick",
+      "id": "joystick1",
+      "top": -29.4,
+      "left": 264.6,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn1",
+      "top": 73.4,
+      "left": 86.4,
+      "attrs": {
+        "color": "green",
+        "xray": "1"
+      }
+    },
+    {
+      "type": "wokwi-microphone-module",
+      "id": "microfone",
+      "top": -29.4,
+      "left": 164.6,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-buzzer",
+      "id": "buzzer1",
+      "top": -100,
+      "left": 100,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn_joystick",
+      "top": -29.4,
+      "left": 390,
+      "attrs": {
+        "color": "blue",
+        "xray": "0"
+      }
+    }
+  ],
+  "connections": [
+    [
+      "pico:GP0",
+      "$serialMonitor:RX",
+      "",
+      []
+    ],
+    [
+      "pico:GP1",
+      "$serialMonitor:TX",
+      "",
+      []
+    ],
+    [
+      "pico:GP11",
+      "r1:2",
+      "green",
+      []
+    ],
+    [
+      "r1:1",
+      "led_verde:A",
+      "green",
+      []
+    ],
+    [
+      "pico:GP12",
+      "r2:2",
+      "gold",
+      []
+    ],
+    [
+      "r2:1",
+      "led_amarelo:A",
+      "gold",
+      []
+    ],
+    [
+      "pico:GP13",
+      "r3:2",
+      "red",
+      []
+    ],
+    [
+      "r3:1",
+      "led_vermelho:A",
+      "red",
+      []
+    ],
+    [
+      "pico:GND.4",
+      "led_verde:C",
+      "black",
+      []
+    ],
+    [
+      "pico:GND.4",
+      "led_amarelo:C",
+      "black",
+      []
+    ],
+    [
+      "pico:GND.4",
+      "led_vermelho:C",
+      "black",
+      []
+    ],
+    [
+      "pico:GP14",
+      "oled1:SDA",
+      "yellow",
+      []
+    ],
+    [
+      "pico:GP15",
+      "oled1:SCL",
+      "purple",
+      []
+    ],
+    [
+      "oled1:GND",
+      "gnd1:GND",
+      "black",
+      []
+    ],
+    [
+      "oled1:VCC",
+      "vcc1:VCC",
+      "red",
+      []
+    ],
+    [
+      "pico:3V3",
+      "joystick1:VCC",
+      "magenta",
+      []
+    ],
+    [
+      "pico:GP27",
+      "joystick1:VERT",
+      "orange",
+      []
+    ],
+    [
+      "pico:GP26",
+      "joystick1:HORZ",
+      "orange",
+      []
+    ],
+    [
+      "pico:GND.5",
+      "joystick1:GND",
+      "black",
+      []
+    ],
+    [
+      "pico:GP10",
+      "btn_joystick:2.r",
+      "blue",
+      []
+    ],
+    [
+      "pico:GND.5",
+      "btn_joystick:1.r",
+      "black",
+      []
+    ],
+    [
+      "pico:GP28",
+      "microfone:OUT",
+      "blue",
+      []
+    ],
+    [
+      "pico:GND.1",
+      "microfone:GND",
+      "black",
+      []
+    ],
+    [
+      "pico:3V3",
+      "microfone:VCC",
+      "red",
+      []
+    ],
+    [
+      "pico:GP9",
+      "btn1:2.r",
+      "violet",
+      []
+    ],
+    [
+      "pico:GND.1",
+      "btn1:1.r",
+      "black",
+      []
+    ],
+    [
+      "pico:GP21",
+      "buzzer1:1",
+      "gray",
+      []
+    ],
+    [
+      "pico:GND.1",
+      "buzzer1:0",
+      "black",
+      []
+    ]
+  ],
+  "dependencies": {}
+}
